@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { List, ListItem, LinkButton, Icon, BaseButton } from '../'
-import * as ioniconsSolid from '@styled-icons/ionicons-solid'
-import * as ioniconsOutline from '@styled-icons/ionicons-outline'
+import { List, ListItem, LinkButton, Icon, BaseButton } from '../';
+import { currentThemeVar } from '../../utils/cache';
+import { lightTheme, darkTheme, contrastTheme } from '../../styles/themes'
+import * as ioniconsSolid from '@styled-icons/ionicons-solid';
+import * as ioniconsOutline from '@styled-icons/ionicons-outline';
 
 const OptionsContainer = styled.div`
     position:fixed;
@@ -18,31 +20,58 @@ const Separator = styled.div`
     margin: 0 auto;
 `
 const Options = (props) => {
+    const currentActiveTheme = currentThemeVar();
+    
+    const isDarkTheme = currentActiveTheme == JSON.stringify(darkTheme); 
+    const islightTheme = currentActiveTheme == JSON.stringify(lightTheme);
+    const isContrastTheme = currentActiveTheme == JSON.stringify(contrastTheme);
     return (
         <OptionsContainer>
             <List column>
                 <ListItem>
-                    <BaseButton>
-                        <Icon
-                            Icon={ioniconsOutline.Sunny}
-                            size="2.5"
-                        /> 
+                    <BaseButton onClick={()=> currentThemeVar(JSON.stringify(darkTheme))}>
+                        { isDarkTheme ? 
+                            <Icon
+                                Icon={ioniconsSolid.Moon}
+                                size="3"
+                                isActive={true}
+                            /> :
+                            <Icon
+                                Icon={ioniconsOutline.Moon}
+                                size="2.5"
+                            />
+                        }
+                        
                     </BaseButton>
                 </ListItem>
                 <ListItem>
-                    <BaseButton>
-                        <Icon
-                            Icon={ioniconsOutline.Moon}
-                            size="2.5"
-                        /> 
+                    <BaseButton onClick={()=> currentThemeVar(JSON.stringify(lightTheme))}>
+                        { islightTheme ? 
+                            <Icon
+                                Icon={ioniconsSolid.Sunny}
+                                size="3"
+                                isActive={true}
+                            /> :
+                            <Icon
+                                Icon={ioniconsOutline.Sunny}
+                                size="2.5"
+                            />
+                        }
                     </BaseButton>
                 </ListItem>
-                <ListItem hasBottomBorder>
-                    <BaseButton>
+                <ListItem>
+                    <BaseButton onClick={()=> currentThemeVar(JSON.stringify(contrastTheme))} >
+                    { isContrastTheme ?
+                        <Icon
+                            Icon={ioniconsSolid.Contrast}
+                            size="3"
+                            isActive={isContrastTheme}
+                        /> :
                         <Icon
                             Icon={ioniconsOutline.Contrast}
                             size="2.5"
-                        /> 
+                        />
+                    }
                     </BaseButton>
                 </ListItem>
             </List>

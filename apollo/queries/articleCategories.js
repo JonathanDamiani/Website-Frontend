@@ -1,4 +1,5 @@
-import gql from "graphql-tag";
+
+import { gql } from '@apollo/client';
 
 const ARTICLE_CATEGORIES_QUERY = gql`
     query articleCategories {

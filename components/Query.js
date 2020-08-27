@@ -1,13 +1,13 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from '@apollo/client';
 
 const Query = ({ children, query, id }) => {
     const { data, loading, error } = useQuery(query, {
         variables: { id: id }
     });
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {JSON.stringify(error)}</p>;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {JSON.stringify(error)}</div>;
     
     return children({ data });
 };
