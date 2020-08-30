@@ -1,5 +1,5 @@
 import { makeVar, InMemoryCache } from '@apollo/client';
-import { lightTheme } from '../styles/themes'
+import { darkTheme } from '../styles/themes'
 
 export const cache = new InMemoryCache({
     typePolicies: {
@@ -16,4 +16,4 @@ export const cache = new InMemoryCache({
 });
 
 
-export const currentThemeVar = makeVar(JSON.stringify(lightTheme));
+export const currentThemeVar = makeVar(JSON.stringify(darkTheme));

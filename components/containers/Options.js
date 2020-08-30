@@ -9,6 +9,7 @@ import * as ioniconsOutline from '@styled-icons/ionicons-outline';
 const OptionsContainer = styled.div`
     position:fixed;
     background-color: ${props => props.theme.colorBG2};
+    z-index:120;
 `
 
 const Separator = styled.div`
