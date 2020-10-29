@@ -16,15 +16,13 @@ export {default as H1} from "./core/H1";
 export {default as H2} from "./core/H2";
 export {default as H3} from "./core/H3";
 export {default as Nav} from "./core/Nav";
-export {default as Tabs} from "./core/Tabs";
-
-export {default as AccordionItem} from './layout/Accordion/AccordionItem';
-export {default as AccordionList} from './layout/Accordion/AccordionList';
-
-
-export {default as SkillLevel} from './layout/SkillLevel/SkillLevel';
+export {default as WorkCard} from "./core/WorkCard";
+export {default as ProjectModal} from "./core/ProjectModal";
 
 export {default as SpaceParticles} from "./particles/SpaceParticles";
 
 export {default as Query} from "./Query";
 
+// Section
+export {default as Home} from "./Sections/Home";
+export {default as Work} from "./Sections/Work";

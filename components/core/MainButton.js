@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled, {keyframes} from 'styled-components';
 
 
@@ -25,7 +25,10 @@ const ButtonText = styled.span`
     transition: background-position 0.3s ease;
 `
 
-const MainButtonStyle = styled.button`
+const MainButtonStyle = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:10em;
     height:3em;
     position: relative;
@@ -73,14 +76,26 @@ const MainButtonStyle = styled.button`
     }
 `
 
-const MainButton = (props) => {
+const MainButton = React.forwardRef((props, ref) => {
+    const {url, children, isExternalLink, onClick,} = props;
     return (
-        <MainButtonStyle onClick={props.onClick}>
-            <ButtonText>
-                {props.children}
-            </ButtonText>
-        </MainButtonStyle>
+        <Fragment>
+        {
+            isExternalLink ?
+                <MainButtonStyle href={url} target="_blank">
+                    <ButtonText>
+                        {children}
+                    </ButtonText>
+                </MainButtonStyle>
+            :
+            <MainButtonStyle onClick={onClick} ref={ref}>
+                <ButtonText>
+                    {children}
+                </ButtonText>
+            </MainButtonStyle>
+        }
+        </Fragment>
     )
-}
+})
 
 export default MainButton;

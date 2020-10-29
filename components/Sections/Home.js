@@ -1,18 +1,30 @@
-import { Container,H1, H2, AnimateLetter, InfoContainer } from '../components';
+import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles } from '../';
 
-const About = () => {
+const Home = () => {
+	const title1 = `Hi,\n`;
+	const title2 = `I'm Jonathan`;
 
-    const title1 = `About Me`;
-	const subtitle = "Programmer, Game Designer, Web developer.";
+	const subtitle = "Programmer, Game & Web developer.";
 	let animDurationColor = 0.1;
 	let animDurationText = 2;
 
-    return (
-        <Container>
+	return (
+		<Container>
+			<SpaceParticles/>
 			<InfoContainer leftSide>
 				<H1>
 					{
 						title1.split('').map((item, i) => {
+							if (item == "\n")
+							{
+								return <br key={i}/>
+							}
+							animDurationColor += 0.1;
+							return <AnimateLetter hasHover key={i} animDuration={animDurationColor}>{item}</AnimateLetter>
+						})
+					}
+					{
+						title2.split('').map((item, i) => {
 							if (item == "\n")
 							{
 								return <br key={i}/>
@@ -32,7 +44,7 @@ const About = () => {
 				</H2>
 			</InfoContainer>
 		</Container>
-    )
+	)
 }
 
-export default About;
+export default Home;

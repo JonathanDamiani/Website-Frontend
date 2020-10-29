@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router'
 
 const PageWrapperStyle = styled(motion.div) `
-    height:100vh;
-    width:100vw;
-    background-color: ${props => props.theme.colorBG1};
     color: ${props => props.theme.fontColor};
     overflow: hidden;
 `

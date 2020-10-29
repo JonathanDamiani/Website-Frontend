@@ -5,10 +5,10 @@ const Container = styled.div`
     position: relative;
     display: block;
     margin: 0 auto;
-    height:100%;
-    width:100%;
-    padding: 0 6.5em;
+    min-height:100vh;
+    width:100vw;
+    background-color: ${props => props.bg2 ? props.theme.colorBG3 : props.theme.colorBG1};
+    padding: 1em 6.5em;
     top:0;
-
 `
 export default Container;

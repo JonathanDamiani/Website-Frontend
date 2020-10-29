@@ -19,7 +19,7 @@ const TextLink = styled.span`
 const NavBar = () => {
     return (
         <Nav>
-            <Container>
+            {/* <Container>
                 <List alignment="center">
                     <ListItem>
                         <Link href="/">
@@ -79,7 +79,7 @@ const NavBar = () => {
                         </Link>
                     </ListItem>
                 </List>
-            </Container>
+            </Container> */}
         </Nav>
     )
 }
