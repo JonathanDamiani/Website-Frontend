@@ -8,16 +8,43 @@ const GlobalStyles = createGlobalStyle`
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         font-size: 14px;
+
     }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: ${props => props.theme.colorBG1};
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: ${props => props.theme.colorPrimary};
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: ${props => props.theme.colorPrimary};
+    }
+
     body {
-        background-color: black;
+        background: ${props => props.theme.colorBG1};
+    }
+    
+    p {
+        font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    }
+
+    span {
+        font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     }
     a {
         color: inherit;
         text-decoration: none;
     }
-
-
 
     * {
         box-sizing: border-box;

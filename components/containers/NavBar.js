@@ -7,8 +7,9 @@ import * as ioniconsOutline from '@styled-icons/ionicons-outline'
 
 const TextLink = styled.span`
     position:absolute;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align:center;
+    top:5px;
     left:20px;
     transform: translate(-50%);
     color: ${props => props.theme.colorPrimary};
@@ -44,20 +45,6 @@ const NavBar = () => {
                             >
                                 <TextLink>
                                     About
-                                </TextLink>
-                            </LinkButton>
-                        </Link>
-                    </ListItem>
-                    <ListItem>
-                        <Link href="/skills">
-                            <LinkButton
-                                LinkIcon={ioniconsOutline.Library}
-                                LinkIconActive={ioniconsSolid.Library}
-                                hasText={true}
-                                href="/skills"
-                            >
-                                <TextLink>
-                                    Skills
                                 </TextLink>
                             </LinkButton>
                         </Link>

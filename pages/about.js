@@ -9,7 +9,7 @@ const About = () => {
 
     return (
         <Container>
-			<InfoContainer>
+			<InfoContainer leftSide>
 				<H1>
 					{
 						title1.split('').map((item, i) => {

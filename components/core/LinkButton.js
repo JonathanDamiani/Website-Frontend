@@ -10,7 +10,7 @@ const LinkItem = styled.a `
     
     ${({ hasText }) => hasText && `
         span, div {
-        transition: all 0.4s ease;
+            transition: all 0.4s ease;
         }
         &:hover span {
             opacity:1;

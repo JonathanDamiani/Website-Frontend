@@ -12,6 +12,8 @@
 		"@apollo/react-hooks": "^4.0.0",
 		"@styled-icons/ionicons-outline": "^10.15.1",
 		"@styled-icons/ionicons-solid": "^10.15.1",
+		"@styled-icons/material": "^10.18.0",
+		"@styled-icons/simple-icons": "^10.18.0",
 		"apollo-cache-inmemory": "^1.6.6",
 		"apollo-client": "^2.6.10",
 		"apollo-link-http": "^1.5.17",
@@ -24,6 +26,7 @@
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
 		"react-particles-js": "^3.3.0",
+		"react-sizeme": "^2.6.12",
 		"styled-components": "^5.1.1"
 	},
 	"devDependencies": {

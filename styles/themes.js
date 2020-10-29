@@ -9,13 +9,15 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-    colorBG1: '#0F0F0F',
-    colorBG2: '#000000',
+    colorBG1: '#000000',
+    colorBG2: '#222222',
+    colorBG3: '#000000',
     colorPrimary: '#0540F2',
     colorSecondary: '#3BA3FF',
     colorTerciary: '#0583F2',
     fontColor: 'white',
-    fontColorNegative: 'black'
+    fontColorNegative: 'black',
+    fontColorContrast: 'white'
 }
 
 export const contrastTheme = {

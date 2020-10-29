@@ -8,6 +8,7 @@ const ParticlesStyled = styled(Particles)`
     position: absolute;
     top:0;
     left:0;
+    z-index:0;
 `
 const SpaceParticles = (props) =>{
     return (
@@ -61,15 +62,15 @@ const SpaceParticles = (props) =>{
                         },
                         "onClick": {
                             "enable": true,
-                            "emitter": "repulse"
+                            "mode": "repulse"
                         }
                     },
                     "modes": {
                         "grab": {
-                            "distance" : 250
+                            "distance" : 200
                         },
                         "repulse": {
-                            "distance" : 200
+                            "distance" : 100
                         }
                     }
                 },

@@ -1,18 +1,17 @@
-import { Container,H1, H2, AnimateLetter, InfoContainer } from '../components';
-import SpaceParticles from '../components/MyParticles';
+import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles } from '../components';
 
 const Home = () => {
 	const title1 = `Hi,\n`;
-	const title2 = `I'm Jonathan Dean`;
+	const title2 = `I'm Jonathan`;
 
-	const subtitle = "Programmer, Game Designer, Web developer.";
+	const subtitle = "Programmer, Game & Web developer.";
 	let animDurationColor = 0.1;
 	let animDurationText = 2;
 
 	return (
 		<Container>
 			<SpaceParticles/>
-			<InfoContainer>
+			<InfoContainer leftSide>
 				<H1>
 					{
 						title1.split('').map((item, i) => {

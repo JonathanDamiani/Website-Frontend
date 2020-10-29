@@ -8,7 +8,6 @@ import { currentThemeVar } from "../utils/cache";
 import GET_CURRENT_THEME from "../apollo/queries/currentTheme";
 import GlobalStyles from  "../styles/globalStyles";
 
-
 const App = ({ Component, pageProps, apollo }) => {
 
 	return (
