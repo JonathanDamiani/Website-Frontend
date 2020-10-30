@@ -7,6 +7,8 @@ import withData from "../utils/apollo";
 import { currentThemeVar } from "../utils/cache";
 import GET_CURRENT_THEME from "../apollo/queries/currentTheme";
 import GlobalStyles from  "../styles/globalStyles";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = ({ Component, pageProps, apollo }) => {
 

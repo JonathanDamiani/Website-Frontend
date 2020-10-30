@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
-import {H3, MainButton} from '../';
+import {H3, MainButton, ProjectModal} from '../';
 
 const WorkCardStyle = styled.div`
 	width:  30em;
@@ -78,12 +78,20 @@ const ButtonsContainer = styled.div `
 const WorkCard = (props) => {
     const {url, urlCall, projectImage, title, shortDescription, fullDescription, techList} = props;
     const [isCardActive, setIsCardActive] = useState(false)
+    const [isModalOpen, setisModalOpen] = useState(false)
+
+    let OnCloseModalClick = () => {
+        setIsCardActive(false);
+        setisModalOpen(false); 
+        
+    }
 
     return (
+        <Fragment>
         <WorkCardStyle 
             onMouseEnter={() => setIsCardActive(true)} 
-            onClick={() => setIsCardActive(true)} isActive={isCardActive}
-            onMouseLeave={() => setIsCardActive(false)}
+            isActive={isCardActive}
+            onMouseLeave={() => setIsCardActive(false)} 
             bgImage= {projectImage}
         >
             <WorkCardContent isActive={isCardActive}>
@@ -104,13 +112,18 @@ const WorkCard = (props) => {
     
                 </ListOfTech>
                 <ButtonsContainer>
-                    <MainButton>More Info</MainButton>
+                    <MainButton onClick={()=> setisModalOpen(true)}>More Info</MainButton>
                     {
                         url && <MainButton isExternalLink url={url}>{urlCall}</MainButton>
                     }
                 </ButtonsContainer>
             </WorkCardContent>
         </WorkCardStyle>	
+        
+        <ProjectModal isActive={isModalOpen} onClickClose={() => OnCloseModalClick()}>
+
+        </ProjectModal>
+        </Fragment>
     )
 }
 
