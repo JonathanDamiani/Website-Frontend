@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-// import { Query } from "..";
-// import ARTICLE_CATEGORIES_QUERY from "../../apollo/queries/articleCategories";
+import { Query } from "..";
+import ARTICLE_CATEGORIES_QUERY from "../../apollo/queries/articleCategories";
 import { H2, Container, WorkCard } from '../';
 import styled from 'styled-components'
 
@@ -18,6 +18,16 @@ const Work = () => {
 			<H2 asTitle contrastColor textAlign="center" textMargin="20px 0 10px">
 				Portfolio
 			</H2>
+			<Query query={ARTICLE_CATEGORIES_QUERY} id={null}>
+					{({data: {articleCategories}}) => {
+						console.log(articleCategories)
+						return (
+							<div>	
+								Done
+							</div>
+						)
+					}}
+				</Query> 
 			<WorkCardsContainer>
 				<WorkCard
 					url="https://www.youtube.com/"
@@ -39,15 +49,3 @@ const Work = () => {
 }
 
 export default Work;
-
-
-/* <Query query={ARTICLE_CATEGORIES_QUERY} id={null}>
-	{({data: {articleCategories}}) => {
-		console.log(articleCategories)
-		return (
-			<div>	
-				Done
-			</div>
-		)
-	}}
-</Query> */
