@@ -139,7 +139,7 @@ WorkCard.propTypes = {
 
 WorkCard.defaultProps = {
     url: "https://www.youtube.com/",
-    projectImage: "https://www.placecage.com/500/500",
+    projectImage: "https://dummyimage.com/500x500/fff/aaa",
     urlCall: "Project Link",
     techList: ["test", "test2"]
 }

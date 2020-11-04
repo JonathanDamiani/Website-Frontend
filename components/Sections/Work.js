@@ -32,7 +32,7 @@ const Work = () => {
 				<WorkCard
 					url="https://www.youtube.com/"
 					urlCall = "Youtube"
-					projectImage="https://www.placecage.com/500/500"
+					projectImage="https://dummyimage.com/500x500/fff/aaa"
 					title="Amazing Project"
 					description= "Lorem ipsun dar sdews case rnasod a cpoqka asdjasdlajd"
 					shortDescription= "Lorem ipsun dar sdews case rnasod a cpoqka asdjasdlajd"
