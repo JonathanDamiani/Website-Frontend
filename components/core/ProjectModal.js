@@ -111,13 +111,13 @@ function ProjectModal(props) {
                         </CloseModalButton> 
                         <SliderOverride {...settings}>
                             <CarouselItem>
-                                <CarouselImage src="https://www.placecage.com/1920/1080" alt="test"/>
+                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
                             </CarouselItem>
                             <CarouselItem>
-                                <CarouselImage src="https://www.placecage.com/1920/1080" alt="test"/>
+                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
                             </CarouselItem>
                             <CarouselItem>
-                                <CarouselImage src="https://www.placecage.com/1920/1080" alt="test"/>
+                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
                             </CarouselItem>
                         </SliderOverride>
                     </ModalContainer>
