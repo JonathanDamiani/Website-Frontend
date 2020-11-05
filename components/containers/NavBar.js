@@ -19,10 +19,9 @@ const TextLink = styled.span`
 const NavBar = () => {
     return (
         <Nav>
-            {/* <Container>
+            <Container>
                 <List alignment="center">
                     <ListItem>
-                        <Link href="/">
                             <LinkButton  
                                 LinkIcon={ioniconsOutline.Home}
                                 LinkIconActive={ioniconsSolid.Home}
@@ -33,21 +32,18 @@ const NavBar = () => {
                                 Home
                             </TextLink>
                             </LinkButton>
-                        </Link>
                     </ListItem>
                     <ListItem>
-                        <Link href="/about">
-                            <LinkButton 
-                                LinkIcon={ioniconsOutline.Person}
-                                LinkIconActive={ioniconsSolid.Person}
-                                hasText={true}
-                                href="/about"
-                            >
-                                <TextLink>
-                                    About
-                                </TextLink>
-                            </LinkButton>
-                        </Link>
+                        <LinkButton 
+                            LinkIcon={ioniconsOutline.Person}
+                            LinkIconActive={ioniconsSolid.Person}
+                            hasText={true}
+                            href="/about"
+                        >
+                            <TextLink>
+                                About
+                            </TextLink>
+                        </LinkButton>
                     </ListItem>
                     <ListItem>
                         <Link href="/work">
@@ -65,21 +61,19 @@ const NavBar = () => {
                         </Link>
                     </ListItem>
                     <ListItem>
-                        <Link href="/contact">
-                            <LinkButton 
-                                LinkIcon={ioniconsOutline.Mail}
-                                LinkIconActive={ioniconsSolid.Mail}
-                                hasText={true}
-                                href="/contact"
-                            >
-                                <TextLink>
-                                    Contact
-                                </TextLink>
-                            </LinkButton>
-                        </Link>
+                        <LinkButton 
+                            LinkIcon={ioniconsOutline.Mail}
+                            LinkIconActive={ioniconsSolid.Mail}
+                            hasText={true}
+                            href="/contact"
+                        >
+                            <TextLink>
+                                Contact
+                            </TextLink>
+                        </LinkButton>
                     </ListItem>
                 </List>
-            </Container> */}
+            </Container>
         </Nav>
     )
 }

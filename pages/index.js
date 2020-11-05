@@ -1,11 +1,22 @@
-import { Home, Work } from '../components';
+import { About, Home, Work } from '../components';
+import styled from 'styled-components';
+
+const SectionsWrapper = styled.div`
+	section:nth-child(even) {
+		background-color: ${props => props.theme.colorBG4};
+	} 
+`
 
 const Index = () => {
 
 	return (
 		<>
 			<Home/>
-			<Work/>
+			<SectionsWrapper>
+				<About/>
+				<Work/>
+			</SectionsWrapper>
+
 		</>
 	)
 }

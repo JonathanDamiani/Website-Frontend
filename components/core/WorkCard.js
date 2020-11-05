@@ -83,7 +83,6 @@ const WorkCard = (props) => {
     let OnCloseModalClick = () => {
         setIsCardActive(false);
         setisModalOpen(false); 
-        
     }
 
     return (

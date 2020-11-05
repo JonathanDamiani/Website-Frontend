@@ -1,4 +1,19 @@
-import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles } from '../';
+import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles, TextBlock } from '../';
+import styled from 'styled-components'
+
+
+const Picture = styled.div`
+	position:relative;
+	float:right;
+	height: 500px;
+	width: 500px;
+	margin-top: -5em;
+	margin-right: 10em;
+  //  background-image: url(${props => props.bgImage});
+	background-size: contain;
+	border-radius: 50%;
+	border:5px solid blue;
+`
 
 const Home = () => {
 	const title1 = `Hi,\n`;
@@ -34,7 +49,7 @@ const Home = () => {
 						})
 					}
 				</H1>
-				<H2>
+				<H2 textSize="2.5em">
 					{
 						subtitle.split('').map((item, i) => {
 							animDurationText += 0.2;
@@ -42,6 +57,13 @@ const Home = () => {
 						})
 					}
 				</H2>
+
+				<TextBlock>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+				</TextBlock>
+			</InfoContainer>
+			<InfoContainer rightSide>
+				<Picture/>
 			</InfoContainer>
 		</Container>
 	)

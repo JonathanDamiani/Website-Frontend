@@ -6,6 +6,8 @@ const Nav = styled.nav`
     background-color: ${props => props.theme.colorBG2};
     width:100%;
     z-index:120;
+    height: 100px;
+    display:none;
 `
 
 export default Nav;

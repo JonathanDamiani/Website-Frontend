@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { List, ListItem, LinkButton, Icon, BaseButton } from '../';
+import { List, ListItem, LinkButton, Icon } from '../';
 import { currentThemeVar } from '../../utils/cache';
 import * as ioniconsSolid from '@styled-icons/ionicons-solid';
 
@@ -9,14 +9,12 @@ const OptionsContainer = styled.div`
     position:fixed;
     z-index:120;
     left:0px;
-    top:50%;
-    transform: translateY(-50%);
+    top:0%;
 `
 
 const OptionsItemList = styled(motion.div)`
     overflow: hidden;
     background-color: ${props => props.theme.colorBG1};
-    border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 7px 6px 29px -1px rgba(0,0,0,0.75);
 `

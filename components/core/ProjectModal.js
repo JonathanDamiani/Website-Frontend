@@ -2,7 +2,7 @@ import React, {useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as ioniconsSolid from '@styled-icons/ionicons-solid';
-import {Icon, H3, MainButton} from '../'
+import {Icon} from '../'
 import Slider from "react-slick";
 
 const ProjectModalStyle = styled.div`
@@ -66,6 +66,7 @@ const SliderOverride = styled(Slider)`
         }
     }
 `
+
 const CarouselItem = styled.div`
     overflow: hidden;
     border-top-left-radius: 20px;
