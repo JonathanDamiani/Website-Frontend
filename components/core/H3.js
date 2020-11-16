@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const H3 = styled.h2`
+export const H3 = styled.h3`
 	color:${(props) => props.contrastColor ? props.theme.fontColorNegative : props.theme.fontColor};
 	font-size: ${(props) => props.textSize ? props.textSize : "3em"};;
 	font-weight: 400;
@@ -9,10 +9,10 @@ export const H3 = styled.h2`
 	${({ asTitle }) => asTitle && `
 		font-family: 'Baloo Tamma 2', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	`}
-	
 	text-align: ${(props) => props.textAlign};
 	margin: ${(props) => props.textMargin};
 	cursor: default;
+	z-index: 2;
 `;
 
 export default H3;

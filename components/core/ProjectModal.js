@@ -2,8 +2,9 @@ import React, {useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as ioniconsSolid from '@styled-icons/ionicons-solid';
-import {Icon} from '../'
+import {Icon, H3} from '../';
 import Slider from "react-slick";
+import parse from 'html-react-parser';
 
 const ProjectModalStyle = styled.div`
     width:100vw;
@@ -14,7 +15,8 @@ const ProjectModalStyle = styled.div`
     align-items:center;
     left:0;
     top:0;
-
+    z-index: 999;
+    
     &::before {
         content:"";
         position:absolute;
@@ -34,6 +36,34 @@ const ModalContainer = styled.div`
     z-index: 20;
 `
 const SliderOverride = styled(Slider)`
+    &::before {
+        content:"";
+        left:0;
+        top:0;
+        position:absolute;
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
+        width:8%;
+        height: 100%;
+        z-index: 10;
+        opacity:0.3;
+        z-index:15;
+    }
+
+    &::after {
+        content:"";
+        right:0;
+        top:0;
+        position:absolute;
+        background: rgb(0,0,0);
+        background: linear-gradient(-90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
+        width:8%;
+        height: 100%;
+        z-index: 10;
+        opacity:0.3;
+        z-index:15;
+    }
+
     .button {
         width: auto;
         height: auto;
@@ -43,7 +73,7 @@ const SliderOverride = styled(Slider)`
         z-index:20;
     }
     .slick-next {
-        right:20px;
+        right: 40px;
         z-index:20;
     }
     .slick-arrow {
@@ -57,11 +87,12 @@ const SliderOverride = styled(Slider)`
         font-size:40px;
     }
     .slick-dots {
-        bottom: 20px;
+        bottom: -25px;
+    
         li {
             button::before {
                 font-size: 15px;
-                color: ${props => props.theme.colorBG3};
+                color: ${props => props.theme.colorPrimary};
             }
         }
     }
@@ -75,15 +106,29 @@ const CarouselItem = styled.div`
 const CarouselImage = styled.img`
     object-fit: cover;
     width: 100%;
-    height: 563px;
+    height: 506px;
 `
+
 const CloseModalButton = styled.div`
     position: absolute;
     top: 20px;
     right: 20px;
     height: 4em;
     width: 4em;
-    z-index:10;
+    z-index:20;
+`
+
+const ModalInfo = styled.div`
+    padding: 2em;
+    color: ${props => props.theme.fontColorNegative};
+    p {
+        font-size:1.2em;
+        margin-bottom: 0.5em;
+    }
+    a {
+        color: ${props => props.theme.colorPrimary};
+        font-size:1.2em;
+    }
 `
 const settings = {
     dots: true,
@@ -111,16 +156,23 @@ function ProjectModal(props) {
                             />
                         </CloseModalButton> 
                         <SliderOverride {...settings}>
-                            <CarouselItem>
-                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
-                            </CarouselItem>
-                            <CarouselItem>
-                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
-                            </CarouselItem>
-                            <CarouselItem>
-                                <CarouselImage src="https://dummyimage.com/1920x1080/fff/aaa" alt="test"/>
-                            </CarouselItem>
+                            {
+                                projectImageList.map((item, idx)=> {
+                                    console.log(item);
+                                    return (
+                                        <CarouselItem key={idx}>
+                                            <CarouselImage src={item.url}/>
+                                        </CarouselItem>
+                                    )
+                                })
+                            }
                         </SliderOverride>
+                        <ModalInfo>
+                            <H3 contrastColor textSize="2em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
+                            {
+                                parse(fullDescription)
+                            }
+                        </ModalInfo>
                     </ModalContainer>
                 </ProjectModalStyle>
             }
@@ -130,7 +182,12 @@ function ProjectModal(props) {
 }
 
 ProjectModal.propTypes = {
-
+    projectImageList: PropTypes.array,
+    url: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    urlCall: PropTypes.string,
+    techList: PropTypes.array,
 }
 
 export default ProjectModal

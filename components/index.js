@@ -9,6 +9,7 @@ export {default as ListItem} from "./core/ListItem";
 export {default as BaseButton} from "./core/BaseButton";
 export {default as MainButton} from "./core/MainButton";
 export {default as Container} from "./core/Container";
+export {default as SectionWrapper} from "./core/SectionWrapper";
 export {default as InfoContainer} from "./core/InfoContainer";
 export {default as AnimateLetter} from "./core/AnimateLetter";
 export {default as BoxContainer} from "./core/BoxContainer";

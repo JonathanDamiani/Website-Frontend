@@ -1,44 +1,35 @@
 import React, {useState} from 'react';
 import { Query } from "..";
-import ARTICLE_CATEGORIES_QUERY from "../../apollo/queries/articleCategories";
-import { H2, H3, Container, TextBlock, Icon } from '../';
+import ABOUT_QUERY from "../../apollo/queries/aboutQuery";
+import SKILLS_QUERY from "../../apollo/queries/skillsQuery";
+import { H2, H3, Container, TextBlock, Icon, InfoContainer, SectionWrapper } from '../';
 import styled from 'styled-components'
-import * as ioniconsSolid from '@styled-icons/ionicons-solid'
 import * as ioniconsOutline from '@styled-icons/ionicons-outline'
 
-const SemiSection = styled.div`
+const SectionBG = styled.div`
     background-color: ${props => props.theme.colorPrimary};
-    height: 50vh;
-    position:relative;
-    padding: 4em 40em;
+    width:100%;
 `
-const SkillsContainerWrapper = styled.div`
-    position:relative;
-    background-color: ${props => props.theme.colorBG3};
-	padding: 2em;
-    display: flex;
-    justify-content: center;
-`
-
 const SkillsContainer = styled.div`
+    max-width: 50%;
     background-color: ${props => props.theme.colorBG3};
-    position: absolute;
-    margin-top: -130px;
-	padding: 2em;
+    padding: 2em 0;
     display: flex;
     justify-content: center;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 8px 32px -9px rgba(0,0,0,0.75);
-    z-index: 200;
+    z-index: 2;
 `
 
 const SkillColumn = styled.div`
     display: flex;
+    flex-grow: 1;
     flex-direction:column;
     align-items: center;
-    padding: 2em 6em;
+    padding: 0em 5em;
     border-right: 1px solid ${props => props.theme.colorPrimary};
+    width: 500px;
     &:last-child{
         border: none;
     }
@@ -54,118 +45,108 @@ const SkillItem = styled.li`
     font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     margin-bottom: 10px;
 `
+const SkillItemTitle = styled(SkillItem)`
+    font-weight: bold;
+    margin: 10px 0;
+
+    &:first-child{
+        margin-top: 0;
+    }
+`
 
 const About = () => {
+    let iconsSkills = [
+        ioniconsOutline.GameController,
+        ioniconsOutline.CodeSlash,
+    ]
+
+    function sortOn (arr, prop) {
+        arr.sort (
+            function (a, b) {
+                if (a[prop] < b[prop]){
+                    return -1;
+                } else if (a[prop] > b[prop]){
+                    return 1;
+                } else {
+                    return 0;   
+                }
+            }
+        );
+    }
+
+    
     return (
 		<Container bg2>
-            <SemiSection>
-                <H2 textSize="3em" asTitle textAlign="center" textMargin="20px 0 10px">
-                    About Myself
-                </H2>
-                <TextBlock>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                    <br/>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </TextBlock>
-            </SemiSection>
-            <SkillsContainerWrapper>
-                <SkillsContainer>
-                    <SkillColumn>
-                        <Icon
-                            Icon={ioniconsOutline.GameController}
-                            size={"4"}
-                            isActive={true}
-                            hasMargin={true}
-                            iconMargin={"0"}
-                        />
-                        <H3 textSize="2em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">Game</H3>
-                        <SkillList>
-                            <SkillItem>
-                                Unreal
-                            </SkillItem>
-                            <SkillItem>
-                                Unity
-                            </SkillItem>
-                            <SkillItem>
-                                C++
-                            </SkillItem>
-                            <SkillItem>
-                                Unreal
-                            </SkillItem>
-                            <SkillItem>
-                                Unity
-                            </SkillItem>
-                            <SkillItem>
-                                C++
-                            </SkillItem>
-                            <SkillItem>
-                                Unreal
-                            </SkillItem>
-                            <SkillItem>
-                                Unity
-                            </SkillItem>
-                            <SkillItem>
-                                C++
-                            </SkillItem>
-                        </SkillList>
-                    </SkillColumn>
-                    <SkillColumn>
-                        <Icon
-                            Icon={ioniconsOutline.CodeSlash}
-                            size={"4"}
-                            isActive={true}
-                            hasMargin={true}
-                            iconMargin={"0"}
-                        />
-                        <H3 textSize="2em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">Game</H3>
-                        <SkillList>
-                            <SkillItem>
-                                HTMl5
-                            </SkillItem>
-                            <SkillItem>
-                                CSS3
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                        </SkillList>
-                    </SkillColumn>
-                    <SkillColumn>
-                        <Icon
-                            Icon={ioniconsOutline.CodeSlash}
-                            size={"4"}
-                            isActive={true}
-                            hasMargin={true}
-                            iconMargin={"0"}
-                        />
-                        <H3 textSize="2em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">Game</H3>
-                        <SkillList>
-                            <SkillItem>
-                                HTMl5
-                            </SkillItem>
-                            <SkillItem>
-                                CSS3
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                            <SkillItem>
-                                React.js
-                            </SkillItem>
-                        </SkillList>
-                    </SkillColumn>
-
-                </SkillsContainer>
-            </SkillsContainerWrapper>
+            <SectionBG>
+                <SectionWrapper>
+                    <Query query={ABOUT_QUERY} id={null}>
+                        {({data: {about}}) => {
+                            let description = about.description.split("\n");
+                            return (
+                                    <InfoContainer>
+                                        <H2 textSize="3em" asTitle textAlign="left" textMargin="0 0 10px">
+                                            {about.title}
+                                        </H2>
+                                        {
+                                            description.map((item, idx) => {
+                                                return (
+                                                    <TextBlock key={idx}>
+                                                        {item}
+                                                    </TextBlock>
+                                                    )
+                                                })
+                                        }
+                                    </InfoContainer>
+                            )
+                        }}
+                    </Query> 
+                    <Query query={SKILLS_QUERY} id={null}>
+                        {({data: {skillCategories}}) => { 
+                            return (
+                                <SkillsContainer>
+                                    {
+                                        
+                                        skillCategories.map((col, idx) => {
+                                            return (
+                                                <SkillColumn key={idx}>
+                                                    <Icon
+                                                        Icon={iconsSkills[idx]}
+                                                        size={"4"}
+                                                        isActive={true}
+                                                        hasMargin={true}
+                                                        iconMargin={"0"}
+                                                    />
+                                                    <H3 textSize="2em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">{col.name}</H3>
+                                                    {
+                                                        col.skill_subcategories.map((cat, idx2) => {
+                                                            return (
+                                                                <SkillList key={idx2}>
+                                                                    <SkillItemTitle>
+                                                                        {cat.name}
+                                                                    </SkillItemTitle>
+                                                                    {
+                                                                        cat.skills.map((skill, idx3) => {
+                                                                            return (
+                                                                                <SkillItem key={idx3}>
+                                                                                    {skill.name}
+                                                                                </SkillItem>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </SkillList>
+                                                            )
+                                                        })
+                                                    }
+                                                </SkillColumn>
+                                            )
+                                        })
+                                    } 
+                                </SkillsContainer>
+                            )
+                        }}
+                    </Query> 
+                </SectionWrapper>
+            </SectionBG>
 		</Container>
     )
 }

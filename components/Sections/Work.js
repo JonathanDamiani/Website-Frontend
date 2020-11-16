@@ -1,54 +1,62 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Query } from "..";
-import ARTICLE_CATEGORIES_QUERY from "../../apollo/queries/articleCategories";
-import { H2, Container, WorkCard } from '../';
+import WORK_QUERY from "../../apollo/queries/workQuery";
+import WORK_SECTION_QUERY from "../../apollo/queries/workSectionQuery";
+import { H2, Container, WorkCard, SectionWrapper } from '../';
+
 import styled from 'styled-components'
 
 const WorkContainer = styled.div`
-	padding: 4em;
+	padding-top: 4em;
 `
 
 const WorkCardsContainer = styled.div`
 	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(3, 30em);
-	gap: 2em;
-	padding: 2em;
+	width:100%;
+	justify-content: space-between;
+	grid-template-columns: repeat(2, 50em);
+	gap: 4em;
 `
 
 const Work = () => {
     return (
 		<Container bg2>
 			<WorkContainer>
-				<H2 textSize="4em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">
-					Portfolio
-				</H2>
-				{/* <Query query={ARTICLE_CATEGORIES_QUERY} id={null}>
-						{({data: {articleCategories}}) => {
-							console.log(articleCategories)
+			<Query query={WORK_SECTION_QUERY} id={null}>
+						{({data: {portflolioSection}}) => {
 							return (
-								<div>	
-									Done
-								</div>
+									<H2 textSize="4em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">
+										{portflolioSection.title}
+									</H2>
 							)
 						}}
-					</Query>  */}
-				<WorkCardsContainer>
-					<WorkCard
-						url="https://www.youtube.com/"
-						urlCall = "Youtube"
-						projectImage="https://dummyimage.com/500x500/fff/aaa"
-						title="Amazing Project"
-						description= "Lorem ipsun dar sdews case rnasod a cpoqka asdjasdlajd"
-						shortDescription= "Lorem ipsun dar sdews case rnasod a cpoqka asdjasdlajd"
-						techList={["teste", "more", "mais um"]}
-					/>
-					<WorkCard/>
-					<WorkCard/>
-					<WorkCard/>
-					<WorkCard/>
-					<WorkCard/>
-				</WorkCardsContainer>
+					</Query> 
+				<SectionWrapper>
+					<Query query={WORK_QUERY} id={null}>
+						{({data: {workPieces}}) => {
+							console.log(workPieces);
+							return (
+									<WorkCardsContainer>
+										{workPieces.map((item, idx) => {
+											return(		
+												<WorkCard
+													key={idx}
+													urlCall={item.link_btn_out.cta}
+													url = {item.link_btn_out.link}
+													projectImage={item.thumbnail.url}
+													title={item.title}
+													shortDescription= {item.short_description}
+													techList={item.skills}
+													projectImageList={item.images}
+													fullDescription= {item.full_description}
+												/>
+											)
+										})}
+									</WorkCardsContainer>
+							)
+						}}
+					</Query> 
+				</SectionWrapper>
 			</WorkContainer>
 		</Container>
     )

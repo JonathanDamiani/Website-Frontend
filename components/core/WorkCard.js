@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 import {H3, MainButton, ProjectModal} from '../';
 
 const WorkCardStyle = styled.div`
-	width:  30em;
-	height:	30em;
+	width:  50em;
+	height:	25em;
 	background-color: ${props => props.theme.colorBG3};
     background-image: url(${props => props.bgImage});
 	background-repeat: no-repeat;
+    background-size: cover;
 	background-position: center;
 	transition: all 0.2s ease;
     border-radius:20px;
@@ -76,7 +77,7 @@ const ButtonsContainer = styled.div `
 `
 
 const WorkCard = (props) => {
-    const {url, urlCall, projectImage, title, shortDescription, fullDescription, techList} = props;
+    const {url, urlCall, projectImage, title, shortDescription, fullDescription, projectImageList, techList} = props;
     const [isCardActive, setIsCardActive] = useState(false)
     const [isModalOpen, setisModalOpen] = useState(false)
 
@@ -94,7 +95,7 @@ const WorkCard = (props) => {
             bgImage= {projectImage}
         >
             <WorkCardContent isActive={isCardActive}>
-                <H3>{title}</H3>
+                <H3 textSize="2em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
                 <ShortDescription>
                     {shortDescription}
                 </ShortDescription>
@@ -103,12 +104,11 @@ const WorkCard = (props) => {
                         techList.map((item, idx) => {
                             return (
                                 <TechItem key={idx}>
-                                    {item}
+                                    {item.name}
                                 </TechItem>
                             )
                         })
                     }
-    
                 </ListOfTech>
                 <ButtonsContainer>
                     <MainButton onClick={()=> setisModalOpen(true)}>More Info</MainButton>
@@ -119,9 +119,13 @@ const WorkCard = (props) => {
             </WorkCardContent>
         </WorkCardStyle>	
         
-        <ProjectModal isActive={isModalOpen} onClickClose={() => OnCloseModalClick()}>
-
-        </ProjectModal>
+        <ProjectModal
+            title={title}
+            isActive={isModalOpen} 
+            onClickClose={() => OnCloseModalClick()}
+            projectImageList={projectImageList}
+            fullDescription ={fullDescription}
+        />
         </Fragment>
     )
 }
@@ -133,7 +137,8 @@ WorkCard.propTypes = {
     description: PropTypes.string,
     shortDescription: PropTypes.string,
     urlCall: PropTypes.string,
-    techList: PropTypes.array
+    techList: PropTypes.array,
+    projectImageList: PropTypes.array
 }
 
 WorkCard.defaultProps = {

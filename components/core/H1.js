@@ -10,6 +10,7 @@ const H1 = styled.h1`
 	margin: ${(props) => props.textMargin};
 	text-align: ${(props) => props.textAlign};
 	cursor: default;
+	pointer-events: all;
 `;
 
 export default H1;
