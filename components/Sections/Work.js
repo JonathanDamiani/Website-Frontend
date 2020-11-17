@@ -34,7 +34,6 @@ const Work = () => {
 				<SectionWrapper>
 					<Query query={WORK_QUERY} id={null}>
 						{({data: {workPieces}}) => {
-							console.log(workPieces);
 							return (
 									<WorkCardsContainer>
 										{workPieces.map((item, idx) => {
