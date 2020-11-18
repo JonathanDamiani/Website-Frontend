@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { device } from '../../styles/breakpoints'
 
 export const H3 = styled.h3`
 	color:${(props) => props.contrastColor ? props.theme.fontColorNegative : props.theme.fontColor};
-	font-size: ${(props) => props.textSize ? props.textSize : "3em"};;
+	font-size: ${(props) => props.textSize ? props.textSize : "2em"};;
 	font-weight: 400;
 	letter-spacing: 2.5px;
 	font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -13,6 +14,19 @@ export const H3 = styled.h3`
 	margin: ${(props) => props.textMargin};
 	cursor: default;
 	z-index: 2;
+
+	@media ${device.tablet} {
+
+	}
+
+	@media ${device.mobileLarge} {
+	}
+
+	@media ${device.mobileSmall} {
+		font-size: 1.5em;
+		line-height: 1.2;
+		margin: 5px 0;
+	}
 `;
 
 export default H3;

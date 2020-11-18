@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import styled, {keyframes} from 'styled-components';
-
+import { device } from '../../styles/breakpoints'
 
 const buttonEffect = keyframes`
     0% { background-position: 0 0; }
@@ -10,7 +10,7 @@ const buttonEffect = keyframes`
 const ButtonText = styled.span`
     position: relative;
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight:bold;
     text-transform: uppercase;
     color: ${props => props.theme.colorSecondary};
@@ -30,7 +30,7 @@ const MainButtonStyle = styled.a`
     justify-content: center;
     align-items: center;
     width:10em;
-    height:3em;
+    height:2.5em;
     position: relative;
     background: transparent;
     border:none;

@@ -1,7 +1,37 @@
 import styled from 'styled-components';
+import { device } from '../../styles/breakpoints'
 
 const InfoContainer = styled.div`
-	max-width: 48%;
+	position:relative;
+	display:block;
+
+	@media ${device.largeDesktop} {
+		width: 48%;
+	}
+
+	@media ${device.desktop} {
+		width: 48%;
+	}
+
+	@media ${device.laptop}{
+		width: 100%;
+	}
+	
+	@media ${device.tablet} {
+		margin-bottom: 4em;
+
+		&:last-child{
+			margin:0;
+		}
+	}
+
+	@media ${device.mobileLarge} {
+		margin-top: 1em;
+	}
+
+	@media ${device.mobileSmall} {
+		
+	}
 `;
 
 export default InfoContainer;

@@ -5,13 +5,14 @@ import SKILLS_QUERY from "../../apollo/queries/skillsQuery";
 import { H2, H3, Container, TextBlock, Icon, InfoContainer, SectionWrapper } from '../';
 import styled from 'styled-components'
 import * as ioniconsOutline from '@styled-icons/ionicons-outline'
+import { device } from '../../styles/breakpoints'
 
 const SectionBG = styled.div`
     background-color: ${props => props.theme.colorPrimary};
     width:100%;
 `
 const SkillsContainer = styled.div`
-    max-width: 50%;
+    
     background-color: ${props => props.theme.colorBG3};
     padding: 2em 0;
     display: flex;
@@ -20,6 +21,22 @@ const SkillsContainer = styled.div`
     overflow: hidden;
     box-shadow: 0px 8px 32px -9px rgba(0,0,0,0.75);
     z-index: 2;
+
+    @media ${device.largeDesktop} {
+        width: 50%;
+	}
+
+	@media ${device.desktop} {
+        width: 50%;
+	}
+
+	@media ${device.laptop}{
+        width: 60%;
+	}
+	
+	@media ${device.tablet} {
+        width: 100%;
+	}
 `
 
 const SkillColumn = styled.div`
@@ -27,9 +44,11 @@ const SkillColumn = styled.div`
     flex-grow: 1;
     flex-direction:column;
     align-items: center;
-    padding: 0em 5em;
+    padding: 0.6em;
     border-right: 1px solid ${props => props.theme.colorPrimary};
-    width: 500px;
+    width: 30%;
+    order: ${props => props.position};
+    
     &:last-child{
         border: none;
     }
@@ -46,35 +65,40 @@ const SkillItem = styled.li`
     margin-bottom: 10px;
 `
 const SkillItemTitle = styled(SkillItem)`
+    font-size: 1.2em;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 15px 0;
 
     &:first-child{
         margin-top: 0;
     }
 `
 
+const AboutInfoContainer = styled(InfoContainer)`
+    @media ${device.largeDesktop} {
+        width: 50%;
+	}
+
+	@media ${device.desktop} {
+        width: 50%;
+	}
+
+	@media ${device.laptop}{
+        width: 40%;
+	}
+	
+	@media ${device.tablet} {
+        width: 100%;
+	}
+`
+
 const About = () => {
     let iconsSkills = [
+        ioniconsOutline.Library,
         ioniconsOutline.GameController,
         ioniconsOutline.CodeSlash,
     ]
 
-    function sortOn (arr, prop) {
-        arr.sort (
-            function (a, b) {
-                if (a[prop] < b[prop]){
-                    return -1;
-                } else if (a[prop] > b[prop]){
-                    return 1;
-                } else {
-                    return 0;   
-                }
-            }
-        );
-    }
-
-    
     return (
 		<Container bg2>
             <SectionBG>
@@ -83,7 +107,7 @@ const About = () => {
                         {({data: {about}}) => {
                             let description = about.description.split("\n");
                             return (
-                                    <InfoContainer>
+                                    <AboutInfoContainer>
                                         <H2 textSize="3em" asTitle textAlign="left" textMargin="0 0 10px">
                                             {about.title}
                                         </H2>
@@ -96,27 +120,31 @@ const About = () => {
                                                     )
                                                 })
                                         }
-                                    </InfoContainer>
+                                    </AboutInfoContainer>
                             )
                         }}
                     </Query> 
                     <Query query={SKILLS_QUERY} id={null}>
                         {({data: {skillCategories}}) => { 
+                            skillCategories.map((item) => console.log(item))
+                            let SkillSorted = skillCategories.slice().sort((a, b) => {
+                                return a.Position - b.Position;
+                            });
+
                             return (
                                 <SkillsContainer>
                                     {
-                                        
-                                        skillCategories.map((col, idx) => {
+                                        SkillSorted.map((col, idx) => {
                                             return (
                                                 <SkillColumn key={idx}>
                                                     <Icon
                                                         Icon={iconsSkills[idx]}
-                                                        size={"4"}
+                                                        size={"3"}
                                                         isActive={true}
                                                         hasMargin={true}
                                                         iconMargin={"0"}
                                                     />
-                                                    <H3 textSize="2em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">{col.name}</H3>
+                                                    <H3 textSize="1.8em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">{col.name}</H3>
                                                     {
                                                         col.skill_subcategories.map((cat, idx2) => {
                                                             return (

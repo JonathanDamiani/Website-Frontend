@@ -2,35 +2,63 @@ import React, {useState, Fragment} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 import {H3, MainButton, ProjectModal} from '../';
+import { device } from '../../styles/breakpoints'
 
+const WorkCardWrapper = styled.div`
+    @media ${device.largeDesktop} {
+        width:  45%;
+	}
+
+	@media ${device.desktop} {
+        width: 48%;
+	}
+
+	@media ${device.laptop}{
+        width: 100%;
+	}
+	
+	@media ${device.tablet} {
+	}
+`
 const WorkCardStyle = styled.div`
-	width:  50em;
-	height:	25em;
+    position: relative;
+    height: 0;
+	padding-top: 56.25%;
 	background-color: ${props => props.theme.colorBG3};
     background-image: url(${props => props.bgImage});
 	background-repeat: no-repeat;
     background-size: cover;
-	background-position: center;
 	transition: all 0.2s ease;
     border-radius:20px;
+
+    @media ${device.laptop}{
+        margin-bottom:40px;
+	}
 
 	${({ isActive }) => isActive && `
 		transform: scale(1.1);
     `}
+
+    @media ${device.mobileSmall} {
+        ${({ isActive }) => isActive && `
+            transform: scale(1.05);
+        `}
+	}
 `
 
 const WorkCardContent = styled.div`
 	width:  100%;
-	height:	100%;
-    padding:1.3em;
+    height: 100%;
 	opacity: 0;
 	display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-	position: relative;
+	position: absolute;
+    top: 0;
 	transition: all 1s ease;
     z-index: -1;
+    padding: 1em;
 
 	${({ isActive }) => isActive && `
         opacity: 1;
@@ -53,6 +81,8 @@ const WorkCardContent = styled.div`
 const ListOfTech = styled.ul `
     position: relative;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     z-index: 10;
 ` 
 
@@ -60,9 +90,10 @@ const TechItem = styled.li `
     font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 1.3em;
+    font-size: 1em;
     margin-right: 10px;
     background-color: ${props => props.theme.colorPrimary};
+    margin-top: 8px;
 `
 const ShortDescription = styled.p `
     position: relative;
@@ -88,44 +119,46 @@ const WorkCard = (props) => {
 
     return (
         <Fragment>
-        <WorkCardStyle 
-            onMouseEnter={() => setIsCardActive(true)} 
-            isActive={isCardActive}
-            onMouseLeave={() => setIsCardActive(false)} 
-            bgImage= {projectImage}
-        >
-            <WorkCardContent isActive={isCardActive}>
-                <H3 textSize="2em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
-                <ShortDescription>
-                    {shortDescription}
-                </ShortDescription>
-                <ListOfTech>
-                    {
-                        techList.map((item, idx) => {
-                            return (
-                                <TechItem key={idx}>
-                                    {item.name}
-                                </TechItem>
-                            )
-                        })
-                    }
-                </ListOfTech>
-                <ButtonsContainer>
-                    <MainButton onClick={()=> setisModalOpen(true)}>More Info</MainButton>
-                    {
-                        url && <MainButton isExternalLink url={url}>{urlCall}</MainButton>
-                    }
-                </ButtonsContainer>
-            </WorkCardContent>
-        </WorkCardStyle>	
-        
-        <ProjectModal
-            title={title}
-            isActive={isModalOpen} 
-            onClickClose={() => OnCloseModalClick()}
-            projectImageList={projectImageList}
-            fullDescription ={fullDescription}
-        />
+            <WorkCardWrapper>
+                    <WorkCardStyle 
+                        onMouseEnter={() => setIsCardActive(true)} 
+                        isActive={isCardActive}
+                        onMouseLeave={() => setIsCardActive(false)} 
+                        bgImage= {projectImage}
+                    >
+                        <WorkCardContent isActive={isCardActive}>
+                            <H3 textSize="1.8em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
+                            <ShortDescription>
+                                {shortDescription}
+                            </ShortDescription>
+                            <ListOfTech>
+                                {
+                                    techList.map((item, idx) => {
+                                        return (
+                                            <TechItem key={idx}>
+                                                {item.name}
+                                            </TechItem>
+                                        )
+                                    })
+                                }
+                            </ListOfTech>
+                            <ButtonsContainer>
+                                <MainButton onClick={()=> setisModalOpen(true)}>More Info</MainButton>
+                                {
+                                    url && <MainButton isExternalLink url={url}>{urlCall}</MainButton>
+                                }
+                            </ButtonsContainer>
+                        </WorkCardContent>
+
+                    </WorkCardStyle>	
+                </WorkCardWrapper>
+            <ProjectModal
+                title={title}
+                isActive={isModalOpen} 
+                onClickClose={() => OnCloseModalClick()}
+                projectImageList={projectImageList}
+                fullDescription ={fullDescription}
+            />
         </Fragment>
     )
 }

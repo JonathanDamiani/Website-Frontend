@@ -1,7 +1,8 @@
 export const device = {
     mobileSmall:    `(max-width: 575px)`,
-    mobileLarge:    `(min-width: 576px) and (max-width: 767px)`,
-    tablet:         `(min-width: 768px) and (max-width: 991px)`,
-    laptop:         `(min-width: 992px) and (max-width: 1199px)`,
-    desktop:        `(min-width: 1200px)`,
+    mobileLarge:    `(max-width: 767px)`,
+    tablet:         `(max-width: 991px)`,
+    laptop:         `(max-width: 1199px)`,
+    desktop:        `(max-width: 1599px)`,
+    largeDesktop:   `(min-width: 1600px)`,
 };

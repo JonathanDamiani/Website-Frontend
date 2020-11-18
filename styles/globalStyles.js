@@ -1,5 +1,6 @@
 // globalStyles.js
 import { createGlobalStyle } from 'styled-components';
+import { device } from './breakpoints'
 
 const GlobalStyles = createGlobalStyle`
     html, body, * {
@@ -7,9 +8,33 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        font-size: 14px;
+        font-size: 10px;
 
+        @media ${device.largeDesktop} {
+            font-size: 16px;
+        }
+
+        @media ${device.desktop} {
+            font-size: 14px;
+        }
+
+        @media ${device.laptop}{
+            font-size: 13px;
+        }
+
+        @media ${device.tablet} {
+            font-size: 11px;
+        }
+
+        @media ${device.mobileLarge} {
+            font-size: 10px;
+        }
+
+        @media ${device.mobileSmall} {
+            font-size: 8px;
+        }
     }
+
     /* width */
     ::-webkit-scrollbar {
         width: 10px;

@@ -2,18 +2,28 @@ import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles, TextBlo
 import styled from 'styled-components'
 import { Query } from "..";
 import HOME_QUERY from "../../apollo/queries/homeQuery";
+import { device } from '../../styles/breakpoints'
 
 const Picture = styled.div`
 	position:relative;
-	float:right;
-	height: 450px;
-	width: 450px;
-	margin-top: 10em;
-	margin-right: 10em;
-    background-image: url(${props => props.bgImage});
+	margin: 0 auto;
+	height: 30em;
+	width: 30em;
+	background-image: url(${props => props.bgImage});
 	background-size: cover;
 	border-radius: 50%;
 	border:5px solid blue;
+
+	@media ${device.tablet} {
+		height: 32em;
+		width: 32em;
+	}
+
+	@media ${device.mobileLarge} {
+		height: 17em;
+		width: 17em;
+		border: 3px solid ${props => props.theme.colorPrimary};
+	}
 `
 const HomeSectionWrapper = styled(SectionWrapper)`
 	pointer-events: none;
@@ -31,7 +41,7 @@ const Home = () => {
 					let title = home.presentation.split("\\n");
                     return (
 							<HomeSectionWrapper fullHeight>
-								<InfoContainer leftSide>
+								<InfoContainer>
 									<H1>
 										{
 											title[0].split('').map((item, i) => {
@@ -55,7 +65,7 @@ const Home = () => {
 											})
 										}
 									</H1>
-									<H2 textSize="2.5em">
+									<H2 textSize="2em" textMargin="0 0 10px 0">
 										{
 											home.subtitle.split('').map((item, i) => {
 												animDurationText += 0.2;
@@ -68,7 +78,7 @@ const Home = () => {
 										{home.description}
 									</TextBlock>
 								</InfoContainer>
-								<InfoContainer rightSide>
+								<InfoContainer>
 									<Picture bgImage={home.picture.url}/>
 								</InfoContainer>
 							</HomeSectionWrapper>
