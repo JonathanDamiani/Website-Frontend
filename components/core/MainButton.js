@@ -16,7 +16,7 @@ const ButtonText = styled.span`
     color: ${props => props.theme.colorSecondary};
     overflow: hidden;
     z-index:100;
-    background: linear-gradient(to left, ${props => props.theme.colorPrimary}, ${props => props.theme.colorPrimary} 50%, ${props => props.theme.colorTerciary} 50%);
+    background: linear-gradient(to left, ${props => props.theme.colorPrimary}, ${props => props.theme.colorPrimary} 50%, ${props => props.theme.colorSecondary} 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -41,7 +41,7 @@ const MainButtonStyle = styled.a`
 
     &::before {
         content: '';
-        background: linear-gradient(40deg, ${props => props.theme.colorPrimary}, ${props => props.theme.colorSecondary}, ${props => props.theme.colorTerciary});
+        background: linear-gradient(40deg, ${props => props.theme.colorPrimary}, ${props => props.theme.colorTerciary});
         position: absolute;
         top: -2px;
         left:-2px;
@@ -52,6 +52,7 @@ const MainButtonStyle = styled.a`
         height: calc(100% + 7px);
         animation: ${buttonEffect} 10s linear infinite;
         border-radius: 10px;
+        opacity: 0;
     }
 
     &::after {
@@ -67,11 +68,13 @@ const MainButtonStyle = styled.a`
     }
 
     &:hover {
+        transform:scale(1.05);
         ${ButtonText} {
             background-position: 100% 100%;
         }
         &::before {
             animation: ${buttonEffect} 5s linear infinite;
+            opacity: 1;
         }
     }
 `

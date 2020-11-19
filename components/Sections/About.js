@@ -12,7 +12,6 @@ const SectionBG = styled.div`
     width:100%;
 `
 const SkillsContainer = styled.div`
-    
     background-color: ${props => props.theme.colorBG3};
     padding: 2em 0;
     display: flex;
@@ -100,7 +99,7 @@ const About = () => {
     ]
 
     return (
-		<Container bg2>
+		<Container bg2 id="about">
             <SectionBG>
                 <SectionWrapper>
                     <Query query={ABOUT_QUERY} id={null}>
@@ -126,7 +125,6 @@ const About = () => {
                     </Query> 
                     <Query query={SKILLS_QUERY} id={null}>
                         {({data: {skillCategories}}) => { 
-                            skillCategories.map((item) => console.log(item))
                             let SkillSorted = skillCategories.slice().sort((a, b) => {
                                 return a.Position - b.Position;
                             });

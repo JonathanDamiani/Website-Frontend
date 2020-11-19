@@ -38,9 +38,5 @@ const SectionWrapper = styled.div`
 		justify-content: flex-start;
 		height: auto;
 	}
-
-	@media ${device.mobileSmall} {
-		
-	}
 `
 export default SectionWrapper;

@@ -1,4 +1,4 @@
-import { About, Home, Work } from '../components';
+import { About, Footer, Home, Work } from '../components';
 import styled from 'styled-components';
 
 const SectionsWrapper = styled.div`
@@ -10,12 +10,13 @@ const SectionsWrapper = styled.div`
 const Index = () => {
 
 	return (
-		<>
+		<>	
 			<Home/>
 			<SectionsWrapper>
 				<About/>
 				<Work/>
 			</SectionsWrapper>
+			<Footer/>
 
 		</>
 	)

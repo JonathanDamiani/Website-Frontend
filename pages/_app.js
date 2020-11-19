@@ -25,7 +25,6 @@ const App = ({ Component, pageProps, apollo }) => {
 					return (
 						<ThemeProvider theme={JSON.parse(currentThemeVar())}> 
 							<GlobalStyles/>
-							<Options/>
 							<NavBar/>
 							<PageWrapper>
 								<Component {...pageProps} />

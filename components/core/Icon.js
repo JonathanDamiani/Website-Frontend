@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { StyledIconBase } from '@styled-icons/styled-icon';
 import { motion } from "framer-motion"
 import PropTypes from 'prop-types'
+import { device } from '../../styles/breakpoints'
 
 const IconBase = styled(motion.div)`
     ${StyledIconBase} {
@@ -10,9 +11,17 @@ const IconBase = styled(motion.div)`
         height:${(props)=> props.size}em;
         width:${(props)=> props.size}em;
         margin: ${props=> props.hasMargin ? props.iconMargin : "0"};
-        cursor: ${props => props.hasHover && "pointer"};;
+        cursor: ${props => props.hasHover && "pointer"};
+        opacity: ${props => props.hasHover ? "0.7" : "1"};
+
         &:hover{
-            color: ${props => props.hasHover && props.theme.colorPrimary};
+            opacity: ${props => props.hasHover && "1"};
+            transform: scale(1.1);
+        }
+        @media ${device.mobileLarge} {
+            height: 4em;
+            width: 4em;
+            opacity: ${props => props.hasHover && "1"};
         }
     }
 `
@@ -41,7 +50,7 @@ Icon.propTypes = {
 Icon.defaultProps = {
     size: "2",
     isActive: false,
-    hasHover: true
+    hasHover: false
 }
 
 export default Icon;

@@ -34,7 +34,7 @@ const Home = () => {
 	let animDurationText = 2;
 
 	return (
-		<Container>
+		<Container id="home">
 			<SpaceParticles/>
 			<Query query={HOME_QUERY} id={null}>
                 {({data: {home}}) => {

@@ -122,6 +122,7 @@ const WorkCard = (props) => {
             <WorkCardWrapper>
                     <WorkCardStyle 
                         onMouseEnter={() => setIsCardActive(true)} 
+                        onClick={() => setIsCardActive(true)} 
                         isActive={isCardActive}
                         onMouseLeave={() => setIsCardActive(false)} 
                         bgImage= {projectImage}

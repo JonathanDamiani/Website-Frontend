@@ -29,3 +29,4 @@ export {default as Query} from "./Query";
 export {default as Home} from "./Sections/Home";
 export {default as Work} from "./Sections/Work";
 export {default as About} from "./Sections/About";
+export {default as Footer} from "./Sections/Footer";

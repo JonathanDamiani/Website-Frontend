@@ -31,7 +31,7 @@ const WorkCardsContainer = styled.div`
 
 const Work = () => {
     return (
-		<Container bg2>
+		<Container bg2 id="work">
 			<WorkContainer>
 				<Query query={WORK_SECTION_QUERY} id={null}>
 					{({data: {portflolioSection}}) => {
@@ -47,21 +47,6 @@ const Work = () => {
 						{({data: {workPieces}}) => {
 							return (
 									<WorkCardsContainer>
-										{workPieces.map((item, idx) => {
-											return(		
-												<WorkCard
-													key={idx}
-													urlCall={item.link_btn_out.cta}
-													url = {item.link_btn_out.link}
-													projectImage={item.thumbnail.url}
-													title={item.title}
-													shortDescription= {item.short_description}
-													techList={item.skills}
-													projectImageList={item.images}
-													fullDescription= {item.full_description}
-												/>
-											)
-										})}
 										{workPieces.map((item, idx) => {
 											return(		
 												<WorkCard

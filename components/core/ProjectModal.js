@@ -5,6 +5,7 @@ import * as ioniconsSolid from '@styled-icons/ionicons-solid';
 import {Icon, H3} from '../';
 import Slider from "react-slick";
 import parse from 'html-react-parser';
+import { device } from '../../styles/breakpoints'
 
 const ProjectModalStyle = styled.div`
     width:100vw;
@@ -16,7 +17,7 @@ const ProjectModalStyle = styled.div`
     left:0;
     top:0;
     z-index: 999;
-    
+
     &::before {
         content:"";
         position:absolute;
@@ -29,40 +30,84 @@ const ProjectModalStyle = styled.div`
 `
 const ModalContainer = styled.div`
     position:relative;
-    width: 1000px;
-    height: 90vh;
     border-radius: 20px;
     background-color: ${props => props.theme.colorBG3};
     z-index: 20;
+    
+    @media ${device.largeDesktop} {
+        width: 1200px;
+        height: 95vh;
+	}
+
+	@media ${device.desktop} {
+        width: 1000px;
+        height: 95vh;
+	}
+
+	@media ${device.laptop}{
+        width: 900px;
+        max-height: 900px;
+        height: 80vh;
+	}
+	
+	@media ${device.tablet} {
+        width: 700px;
+        max-height: 800px;
+        height: 80vh;
+	}
+	
+	@media ${device.mobileLarge} {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+	}
 `
 const SliderOverride = styled(Slider)`
-    &::before {
-        content:"";
-        left:0;
-        top:0;
-        position:absolute;
-        background: rgb(0,0,0);
-        background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
-        width:8%;
-        height: 100%;
-        z-index: 10;
-        opacity:0.3;
-        z-index:15;
-    }
+	@media ${device.tablet} {
+        &::before {
+            content:"";
+            left:0;
+            top:0;
+            position:absolute;
+            background: rgb(0,0,0);
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
+            width:8%;
+            height: 100%;
+            z-index: 10;
+            opacity:0.3;
+            z-index:15;
+            border-top-left-radius: 20px;
+        }
 
-    &::after {
-        content:"";
-        right:0;
-        top:0;
-        position:absolute;
-        background: rgb(0,0,0);
-        background: linear-gradient(-90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
-        width:8%;
-        height: 100%;
-        z-index: 10;
-        opacity:0.3;
-        z-index:15;
-    }
+        &::after {
+            content:"";
+            right:0;
+            top:0;
+            position:absolute;
+            background: rgb(0,0,0);
+            background: linear-gradient(-90deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0.12) 100%); 
+            width:8%;
+            height: 100%;
+            z-index: 10;
+            opacity:0.3;
+            z-index:15;
+            border-top-right-radius: 20px;
+        }
+	}
+    
+    @media ${device.mobileLarge} {
+        &::before {
+            border-top-left-radius: 0px;
+        }
+
+        &::after {
+            border-top-right-radius: 0px;
+        }
+	}
 
     .button {
         width: auto;
@@ -85,10 +130,14 @@ const SliderOverride = styled(Slider)`
     .slick-arrow::before {
         color: ${props => props.theme.colorPrimary};
         font-size:40px;
+
+        @media ${device.mobileLarge} {
+            font-size: 30px;
+        }
     }
     .slick-dots {
         bottom: -25px;
-    
+        
         li {
             button::before {
                 font-size: 15px;
@@ -102,11 +151,46 @@ const CarouselItem = styled.div`
     overflow: hidden;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    width: 60%;
+    background-color: ${props => props.theme.colorBG4};
+    @media ${device.largeDesktop} {
+        width: 60%;
+	}
+
+	@media ${device.desktop} {
+        width: 60%;
+	}	
+	@media ${device.tablet} {
+        width: 100%;
+	}
+	
+	@media ${device.mobileLarge} {
+        border-radius: 0;
+	}
 `
 const CarouselImage = styled.img`
-    object-fit: cover;
-    width: 100%;
-    height: 506px;
+    margin: 0 auto;
+
+    @media ${device.largeDesktop} {
+        height:405px;
+	}
+
+	@media ${device.desktop} {
+        height:338px;
+	}
+
+	@media ${device.laptop}{
+        height: 304px;
+	}
+	
+	@media ${device.tablet} {
+        height: 394px;
+	}
+	
+	@media ${device.mobileLarge} {
+        width: 100%;
+        height: auto;
+	}
 `
 
 const CloseModalButton = styled.div`
@@ -116,6 +200,10 @@ const CloseModalButton = styled.div`
     height: 4em;
     width: 4em;
     z-index:20;
+    
+    @media ${device.mobileLarge} {
+        top: 10px;
+	}
 `
 
 const ModalInfo = styled.div`
@@ -129,6 +217,13 @@ const ModalInfo = styled.div`
         color: ${props => props.theme.colorPrimary};
         font-size:1.2em;
     }
+    @media ${device.mobileLarge} {
+        margin-top: 2em;
+
+        p, a {
+            font-size:1.4em;
+        }
+	}
 `
 const settings = {
     dots: true,
@@ -158,7 +253,6 @@ function ProjectModal(props) {
                         <SliderOverride {...settings}>
                             {
                                 projectImageList.map((item, idx)=> {
-                                    console.log(item);
                                     return (
                                         <CarouselItem key={idx}>
                                             <CarouselImage src={item.url}/>
@@ -168,7 +262,7 @@ function ProjectModal(props) {
                             }
                         </SliderOverride>
                         <ModalInfo>
-                            <H3 contrastColor textSize="2em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
+                            <H3 contrastColor textSize="2.2em" asTitle textAlign="center" textMargin="0px 0 10px">{title}</H3>
                             {
                                 parse(fullDescription)
                             }

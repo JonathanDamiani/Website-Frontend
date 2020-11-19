@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'; 
 import Icon from './Icon';
 import { useRouter } from 'next/router'
+import { device } from '../../styles/breakpoints'
 
 const LinkItem = styled.a `
     cursor: pointer;
