@@ -7,6 +7,7 @@ const WORK_QUERY = gql`
             title
             short_description
             full_description
+            position
             skills {
                 name
             }

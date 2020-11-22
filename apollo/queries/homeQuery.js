@@ -10,6 +10,7 @@ const HOME_QUERY = gql`
             picture {
                 url
             }
+            contact
         }
     } 
 `;

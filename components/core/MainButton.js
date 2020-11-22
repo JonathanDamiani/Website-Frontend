@@ -33,7 +33,7 @@ const MainButtonStyle = styled.a`
     height:2.5em;
     position: relative;
     background: transparent;
-    border:none;
+    border:1px solid white;
     margin:10px 10px;
     border-radius:10px;
     cursor: pointer;
@@ -69,6 +69,7 @@ const MainButtonStyle = styled.a`
 
     &:hover {
         transform:scale(1.05);
+        border:1px solid white;
         ${ButtonText} {
             background-position: 100% 100%;
         }

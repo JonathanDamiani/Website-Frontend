@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import { Query } from "..";
 import ABOUT_QUERY from "../../apollo/queries/aboutQuery";
 import SKILLS_QUERY from "../../apollo/queries/skillsQuery";
-import { H2, H3, Container, TextBlock, Icon, InfoContainer, SectionWrapper } from '../';
+import { H2, H3, Container, TextBlock, Icon, InfoContainer, SectionWrapper, HTMLTextContainer } from '../';
 import styled from 'styled-components'
 import * as ioniconsOutline from '@styled-icons/ionicons-outline'
 import { device } from '../../styles/breakpoints'
+import parse from 'html-react-parser';
 
 const SectionBG = styled.div`
     background-color: ${props => props.theme.colorPrimary};
@@ -59,7 +60,7 @@ const SkillList = styled.ul`
 const SkillItem = styled.li`
     text-align: center;
     color: ${props => props.theme.fontColorNegative};
-    font-size: 1.3em;
+    font-size: 1em;
     font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     margin-bottom: 10px;
 `
@@ -75,11 +76,11 @@ const SkillItemTitle = styled(SkillItem)`
 
 const AboutInfoContainer = styled(InfoContainer)`
     @media ${device.largeDesktop} {
-        width: 50%;
+        width: 46%;
 	}
 
 	@media ${device.desktop} {
-        width: 50%;
+        width: 46%;
 	}
 
 	@media ${device.laptop}{
@@ -110,15 +111,9 @@ const About = () => {
                                         <H2 textSize="3em" asTitle textAlign="left" textMargin="0 0 10px">
                                             {about.title}
                                         </H2>
-                                        {
-                                            description.map((item, idx) => {
-                                                return (
-                                                    <TextBlock key={idx}>
-                                                        {item}
-                                                    </TextBlock>
-                                                    )
-                                                })
-                                        }
+                                        <HTMLTextContainer>
+                                            {parse(about.description)}
+                                        </HTMLTextContainer>
                                     </AboutInfoContainer>
                             )
                         }}

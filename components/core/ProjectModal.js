@@ -2,7 +2,7 @@ import React, {useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as ioniconsSolid from '@styled-icons/ionicons-solid';
-import {Icon, H3} from '../';
+import {Icon, H3, MainButton} from '../';
 import Slider from "react-slick";
 import parse from 'html-react-parser';
 import { device } from '../../styles/breakpoints'
@@ -25,7 +25,7 @@ const ProjectModalStyle = styled.div`
         width:100vw;
         height: 100vh;
         z-index: 10;
-        opacity:0.5;
+        opacity:0.3;
     }
 `
 const ModalContainer = styled.div`
@@ -225,6 +225,14 @@ const ModalInfo = styled.div`
         }
 	}
 `
+
+const ButtonsContainer = styled.div `
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+`
+
 const settings = {
     dots: true,
     infinite: true,
@@ -266,6 +274,11 @@ function ProjectModal(props) {
                             {
                                 parse(fullDescription)
                             }
+                        <ButtonsContainer>
+                            {
+                                url && <MainButton isExternalLink url={url}>{urlCall}</MainButton>
+                            }
+                        </ButtonsContainer>
                         </ModalInfo>
                     </ModalContainer>
                 </ProjectModalStyle>
@@ -282,6 +295,7 @@ ProjectModal.propTypes = {
     description: PropTypes.string,
     urlCall: PropTypes.string,
     techList: PropTypes.array,
+    
 }
 
 export default ProjectModal

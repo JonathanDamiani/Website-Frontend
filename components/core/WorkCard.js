@@ -108,7 +108,7 @@ const ButtonsContainer = styled.div `
 `
 
 const WorkCard = (props) => {
-    const {url, urlCall, projectImage, title, shortDescription, fullDescription, projectImageList, techList} = props;
+    const {url, urlCall, projectImage, title, shortDescription, fullDescription, projectImageList, techList, inURL, inURLCall} = props;
     const [isCardActive, setIsCardActive] = useState(false)
     const [isModalOpen, setisModalOpen] = useState(false)
 
@@ -159,6 +159,8 @@ const WorkCard = (props) => {
                 onClickClose={() => OnCloseModalClick()}
                 projectImageList={projectImageList}
                 fullDescription ={fullDescription}
+                url={inURL && inURL}
+                urlCall={inURLCall && inURLCall}
             />
         </Fragment>
     )

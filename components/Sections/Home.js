@@ -1,8 +1,9 @@
-import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles, TextBlock, SectionWrapper } from '../';
+import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles, TextBlock, SectionWrapper, HTMLTextContainer } from '../';
 import styled from 'styled-components'
 import { Query } from "..";
 import HOME_QUERY from "../../apollo/queries/homeQuery";
 import { device } from '../../styles/breakpoints'
+import parse from 'html-react-parser';
 
 const Picture = styled.div`
 	position:relative;
@@ -27,6 +28,17 @@ const Picture = styled.div`
 `
 const HomeSectionWrapper = styled(SectionWrapper)`
 	pointer-events: none;
+`
+const ContactText = styled(TextBlock)`
+	pointer-events: auto;
+	
+	margin-top: 10px;
+	font-weight: bold;
+	font-size:1.4em;
+	span {
+		font-size:1em;
+		text-decoration: underline;
+	}
 `
 
 const Home = () => {
@@ -74,9 +86,12 @@ const Home = () => {
 										}
 									</H2>
 
-									<TextBlock>
-										{home.description}
-									</TextBlock>
+									<HTMLTextContainer>
+										{parse(home.description)}
+									</HTMLTextContainer>
+									<ContactText>
+										{parse(home.contact)}
+									</ContactText>
 								</InfoContainer>
 								<InfoContainer>
 									<Picture bgImage={home.picture.url}/>

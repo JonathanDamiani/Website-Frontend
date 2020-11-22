@@ -13,6 +13,7 @@ export {default as SectionWrapper} from "./core/SectionWrapper";
 export {default as InfoContainer} from "./core/InfoContainer";
 export {default as AnimateLetter} from "./core/AnimateLetter";
 export {default as BoxContainer} from "./core/BoxContainer";
+export {default as HTMLTextContainer} from "./core/HTMLTextContainer";
 export {default as H1} from "./core/H1";
 export {default as H2} from "./core/H2";
 export {default as H3} from "./core/H3";

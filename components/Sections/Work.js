@@ -59,6 +59,8 @@ const Work = () => {
 													techList={item.skills}
 													projectImageList={item.images}
 													fullDescription= {item.full_description}
+													inURL={item.link_btn_in.link}
+													inURLCall={item.link_btn_in.cta}
 												/>
 											)
 										})}
