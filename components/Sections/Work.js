@@ -12,6 +12,13 @@ const WorkContainer = styled.div`
 `
 
 const WorkCardWrapper = styled(SectionWrapper)`
+	@media ${device.largeDesktop} {
+        padding: 4em 8em 0;
+	}
+
+	@media ${device.desktop} {
+        padding: 4em 8em 0;
+	}
 	@media ${device.mobileSmall} {
 		padding:3em;
 	}
@@ -45,9 +52,12 @@ const Work = () => {
 				<WorkCardWrapper>
 					<Query query={WORK_QUERY} id={null}>
 						{({data: {workPieces}}) => {
+							let WorksSorted = workPieces.slice().sort((a, b) => {
+                                return a.position - b.position;
+                            });
 							return (
 									<WorkCardsContainer>
-										{workPieces.map((item, idx) => {
+										{WorksSorted.map((item, idx) => {
 											return(		
 												<WorkCard
 													key={idx}
@@ -61,6 +71,7 @@ const Work = () => {
 													fullDescription= {item.full_description}
 													inURL={item.link_btn_in.link}
 													inURLCall={item.link_btn_in.cta}
+													videoId={item.video_id}
 												/>
 											)
 										})}

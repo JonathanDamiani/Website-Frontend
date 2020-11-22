@@ -8,6 +8,7 @@ const WORK_QUERY = gql`
             short_description
             full_description
             position
+            video_id
             skills {
                 name
             }

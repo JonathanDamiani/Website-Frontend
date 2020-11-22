@@ -193,6 +193,53 @@ const CarouselImage = styled.img`
 	}
 `
 
+const CarouselVideo = styled.div`
+    margin: 0 auto;
+    position: relative;
+
+    @media ${device.largeDesktop} {
+        height:405px;
+	}
+
+	@media ${device.desktop} {
+        height:338px;
+	}
+
+	@media ${device.laptop}{
+        height: 304px;
+	}
+	
+	@media ${device.tablet} {
+        height: 394px;
+	}
+	
+	@media ${device.mobileLarge} {
+        width: 100%;
+        height: 0;
+        padding-bottom:56.25%;
+	}
+`
+
+const VideoFrame = styled.iframe`
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    z-index: 999;
+
+    @media ${device.largeDesktop} {
+        width: 60%;
+	}
+
+	@media ${device.desktop} {
+        width: 60%;
+	}	
+	@media ${device.tablet} {
+        width: 100%;
+	}
+`
+
 const CloseModalButton = styled.div`
     position: absolute;
     top: 20px;
@@ -242,7 +289,7 @@ const settings = {
     slidesToScroll: 1
 };
 function ProjectModal(props) {
-    const {isActive, onClickClose, url, urlCall, projectImageList, title, fullDescription, techList} = props;
+    const {isActive, onClickClose, url, urlCall, projectImageList, title, fullDescription, techList, videoId} = props;
     return (
         <Fragment>
             {
@@ -259,6 +306,17 @@ function ProjectModal(props) {
                             />
                         </CloseModalButton> 
                         <SliderOverride {...settings}>
+                            {   
+                            videoId && 
+                                <CarouselItem>
+                                    <CarouselVideo>
+                                        <VideoFrame
+                                            src={`https://www.youtube.com/embed/${videoId}`}
+                                            frameBorder="0"
+                                        />
+                                    </CarouselVideo>
+                                </CarouselItem>
+                            }   
                             {
                                 projectImageList.map((item, idx)=> {
                                     return (

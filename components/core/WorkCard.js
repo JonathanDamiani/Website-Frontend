@@ -7,14 +7,17 @@ import { device } from '../../styles/breakpoints'
 const WorkCardWrapper = styled.div`
     @media ${device.largeDesktop} {
         width:  45%;
+        margin-bottom: 4em;
 	}
 
 	@media ${device.desktop} {
         width: 48%;
+        margin-bottom: 4em;
 	}
 
 	@media ${device.laptop}{
         width: 100%;
+        margin-bottom: 0em;
 	}
 	
 	@media ${device.tablet} {
@@ -108,7 +111,7 @@ const ButtonsContainer = styled.div `
 `
 
 const WorkCard = (props) => {
-    const {url, urlCall, projectImage, title, shortDescription, fullDescription, projectImageList, techList, inURL, inURLCall} = props;
+    const {url, urlCall, projectImage, title, shortDescription, fullDescription, projectImageList, techList, inURL, inURLCall, videoId} = props;
     const [isCardActive, setIsCardActive] = useState(false)
     const [isModalOpen, setisModalOpen] = useState(false)
 
@@ -161,6 +164,7 @@ const WorkCard = (props) => {
                 fullDescription ={fullDescription}
                 url={inURL && inURL}
                 urlCall={inURLCall && inURLCall}
+                videoId={videoId}
             />
         </Fragment>
     )
