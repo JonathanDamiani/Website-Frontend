@@ -7,7 +7,7 @@ export const H2 = styled.h2`
 	font-weight: 400;
 	letter-spacing: 2px;
 	line-height:1;
-	font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	${({ asTitle }) => asTitle && `
 		font-family: 'Baloo Tamma 2', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	`}

@@ -13,7 +13,7 @@ const Picture = styled.div`
 	background-image: url(${props => props.bgImage});
 	background-size: cover;
 	border-radius: 50%;
-	border:5px solid blue;
+	border:5px solid ${props => props.theme.colorPrimary};
 
 	@media ${device.tablet} {
 		height: 32em;

@@ -6,12 +6,12 @@ const GlobalStyles = createGlobalStyle`
     html, body, * {
         padding: 0;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        font-family:'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         font-size: 10px;
 
         @media ${device.largeDesktop} {
-            font-size: 16px;
+            font-size: 14px;
         }
 
         @media ${device.desktop} {
@@ -60,11 +60,12 @@ const GlobalStyles = createGlobalStyle`
     }
     
     p {
-        font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        line-height: 1.5;
     }
 
     span {
-        font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     }
     a {
         color: inherit;

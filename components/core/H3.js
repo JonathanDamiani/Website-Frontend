@@ -6,7 +6,7 @@ export const H3 = styled.h3`
 	font-size: ${(props) => props.textSize ? props.textSize : "2em"};;
 	font-weight: 400;
 	letter-spacing: 2.5px;
-	font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	${({ asTitle }) => asTitle && `
 		font-family: 'Baloo Tamma 2', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	`}
@@ -14,13 +14,6 @@ export const H3 = styled.h3`
 	margin: ${(props) => props.textMargin};
 	cursor: default;
 	z-index: 2;
-
-	@media ${device.tablet} {
-
-	}
-
-	@media ${device.mobileLarge} {
-	}
 
 	@media ${device.mobileSmall} {
 		font-size: 1.5em;

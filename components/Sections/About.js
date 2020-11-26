@@ -9,7 +9,7 @@ import { device } from '../../styles/breakpoints'
 import parse from 'html-react-parser';
 
 const SectionBG = styled.div`
-    background-color: ${props => props.theme.colorPrimary};
+    background-color: ${props => props.theme.colorTerciary};
     width:100%;
 `
 const SkillsContainer = styled.div`
@@ -61,7 +61,7 @@ const SkillItem = styled.li`
     text-align: center;
     color: ${props => props.theme.fontColorNegative};
     font-size: 1em;
-    font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     margin-bottom: 10px;
 `
 const SkillItemTitle = styled(SkillItem)`
@@ -105,7 +105,6 @@ const About = () => {
                 <SectionWrapper>
                     <Query query={ABOUT_QUERY} id={null}>
                         {({data: {about}}) => {
-                            let description = about.description.split("\n");
                             return (
                                     <AboutInfoContainer>
                                         <H2 textSize="3em" asTitle textAlign="left" textMargin="0 0 10px">

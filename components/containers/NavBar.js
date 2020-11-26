@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
-import { Options, Icon } from '../'
+import { Options } from '../'
 import { Link, animateScroll as scroll } from "react-scroll";
 import { device } from '../../styles/breakpoints'
+import { Query } from "..";
+import  CV_QUERY from "../../apollo/queries/cvQuery";
 
 const Nav = styled.nav`
     position:fixed;
@@ -257,11 +259,18 @@ const NavBar = () => {
                             PORTFOLIO
                         </NavLink>
                     </NavItem>
-                    {/* <NavItem>
-                        <ButtonDownload>
-                            DOWNLOAD CV
-                        </ButtonDownload>
-                    </NavItem> */}
+                    <NavItem>
+                        <Query query={CV_QUERY} id={null}>
+                            {({data: {cv}}) => {
+                                console.log(cv);
+                                return (
+                                        <ButtonDownload href={cv.cv_link.url} target="_blank" textSize="4em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">
+                                            DOWNLOAD CV
+                                        </ButtonDownload>
+                                )
+                            }}
+                        </Query> 
+                    </NavItem>
                 </NavContainer>
             </Nav>
         </>

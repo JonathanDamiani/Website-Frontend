@@ -13,9 +13,9 @@ export const darkTheme = {
     colorBG2: '#222222',
     colorBG3: '#FFFFFF',
     colorBG4: '#EFEFEF',
-    colorPrimary: '#0540F2',
+    colorPrimary: '#5C28F7',
     colorSecondary: '#FFFFFF',
-    colorTerciary: '#0583F2',
+    colorTerciary: '#2A1270',
     fontColor: 'white',
     fontColorNegative: 'black',
     fontColorContrast: 'white'
