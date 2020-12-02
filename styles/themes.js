@@ -14,19 +14,9 @@ export const darkTheme = {
     colorBG3: '#FFFFFF',
     colorBG4: '#EFEFEF',
     colorPrimary: '#5C28F7',
-    colorSecondary: '#FFFFFF',
+    colorSecondary: '#EFEFEF',
     colorTerciary: '#2A1270',
-    fontColor: 'white',
+    fontColor: '#EFEFEF',
     fontColorNegative: 'black',
-    fontColorContrast: 'white'
-}
-
-export const contrastTheme = {
-    colorBG1: '#0F0F0F',
-    colorBG2: 'white',
-    colorPrimary: '#0540F2',
-    colorSecondary: '#3BA3FF',
-    colorTerciary: '#0583F2',
-    fontColor: 'white',
-    fontColorNegative: 'black'
+    fontColorContrast: '#EFEFEF'
 }

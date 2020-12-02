@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import styled from 'styled-components';
 
 import { changeOpacity, changeColor } from "../Animations";

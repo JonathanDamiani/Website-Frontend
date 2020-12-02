@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import { Container,H1, H2, AnimateLetter, InfoContainer, SpaceParticles, TextBlock, SectionWrapper, HTMLTextContainer } from '../';
 import styled from 'styled-components'
 import { Query } from "..";

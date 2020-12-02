@@ -1,3 +1,10 @@
+/* 
+ *  Main
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import styled from 'styled-components'
 import { device } from '../../styles/breakpoints'
 
@@ -6,8 +13,8 @@ const HTMLTextContainer = styled.div`
 
     p {
         color:${(props) => props.contrastColor ? props.theme.fontColorNegative : props.theme.fontColor};
-        font-size: ${(props) => props.textSize ? props.textSize : "1.3em"};;
-        font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-size: ${(props) => props.textSize ? props.textSize : "1.4em"};;
+        font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
         @media ${device.tablet} {
             text-align: center;

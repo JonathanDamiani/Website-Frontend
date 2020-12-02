@@ -7,7 +7,7 @@ const Query = ({ children, query, id }) => {
     });
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {JSON.stringify(error)}</div>;
+    if (error) return <div>Error try to reload the page</div>;
     
     return children({ data });
 };

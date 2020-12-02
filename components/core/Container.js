@@ -1,5 +1,10 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import styled from 'styled-components'
-import { device } from '../../styles/breakpoints'
 
 const Container = styled.section`
     position: relative;

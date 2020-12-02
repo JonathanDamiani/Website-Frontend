@@ -1,10 +1,16 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React, {Fragment} from 'react';
 import styled, {keyframes} from 'styled-components';
 import { device } from '../../styles/breakpoints'
 
 const buttonEffect = keyframes`
     0% { background-position: 0 0; }
-    100% { background-position: 400% 0; }
+    100% { background-position: 500% 0; }
 `;
 
 const ButtonText = styled.span`
@@ -13,7 +19,6 @@ const ButtonText = styled.span`
     font-size: 1em;
     font-weight:bold;
     text-transform: uppercase;
-    color: ${props => props.theme.colorSecondary};
     overflow: hidden;
     z-index:100;
     background: linear-gradient(to left, ${props => props.theme.colorPrimary}, ${props => props.theme.colorPrimary} 50%, ${props => props.theme.colorSecondary} 50%);
@@ -71,7 +76,7 @@ const MainButtonStyle = styled.a`
         transform:scale(1.05);
         border:1px solid white;
         ${ButtonText} {
-            background-position: 100% 100%;
+            background-position: 101% 100%;
         }
         &::before {
             animation: ${buttonEffect} 5s linear infinite;

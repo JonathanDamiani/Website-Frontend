@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React from 'react'
 import { Container, TextBlock, SectionWrapper } from '../';
 import styled from 'styled-components';
@@ -21,6 +27,9 @@ const Footer = () => {
                 </TextBlock>
                 <TextBlock>
                     Copyright © 2020 Jonathan Dean Damiani 
+                </TextBlock>
+                <TextBlock>
+                    Made with Next.js and Strapi
                 </TextBlock>
             </FooterContainer>
         </Container>

@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 export const device = {
     mobileSmall:    `(max-width: 575px)`,
     mobileLarge:    `(max-width: 767px)`,

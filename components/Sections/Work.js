@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React from 'react';
 import { Query } from "..";
 import WORK_QUERY from "../../apollo/queries/workQuery";

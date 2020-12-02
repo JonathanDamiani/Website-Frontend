@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React, {useState} from 'react';
 import { Query } from "..";
 import ABOUT_QUERY from "../../apollo/queries/aboutQuery";

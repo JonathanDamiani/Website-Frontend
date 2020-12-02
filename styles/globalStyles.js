@@ -1,4 +1,9 @@
-// globalStyles.js
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import { createGlobalStyle } from 'styled-components';
 import { device } from './breakpoints'
 

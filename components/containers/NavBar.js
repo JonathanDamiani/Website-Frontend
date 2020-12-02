@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import { Options } from '../'
@@ -262,7 +268,6 @@ const NavBar = () => {
                     <NavItem>
                         <Query query={CV_QUERY} id={null}>
                             {({data: {cv}}) => {
-                                console.log(cv);
                                 return (
                                         <ButtonDownload href={cv.cv_link.url} target="_blank" textSize="4em" asTitle contrastColor textAlign="center" textMargin="0px 0 10px">
                                             DOWNLOAD CV

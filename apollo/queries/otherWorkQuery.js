@@ -6,13 +6,14 @@
 
 import { gql } from '@apollo/client';
 
-const ABOUT_QUERY = gql`
+const OTHER_WORK_QUERY = gql`
     query {
-        about {
+        otherWork {
             title
             description
+            can_show
         }
     } 
 `;
 
-export default ABOUT_QUERY;
+export default OTHER_WORK_QUERY;

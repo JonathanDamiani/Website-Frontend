@@ -1,7 +1,13 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React, {useState, Fragment} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
-import {H3, MainButton, ProjectModal} from '../';
+import {H3, MainButton, ProjectModal, ListOfTech, TechItem} from '../';
 import { device } from '../../styles/breakpoints'
 
 const WorkCardWrapper = styled.div`
@@ -81,26 +87,9 @@ const WorkCardContent = styled.div`
 	}
 `
 
-const ListOfTech = styled.ul `
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    z-index: 10;
-` 
-
-const TechItem = styled.li `
-    font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 1em;
-    margin-right: 10px;
-    background-color: ${props => props.theme.colorPrimary};
-    margin-top: 8px;
-`
 const ShortDescription = styled.p `
     position: relative;
-    font-family: 'Source Code Pro', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 1.3em;
     text-align: center;
 `

@@ -1,3 +1,9 @@
+/* 
+ *  @Copyright: (C) 2020, Jonathan 
+ *  @Author: Jonathan Dean Damiani 
+ *  @Version:  1.0.0
+ */
+
 import React, {useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
