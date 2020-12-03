@@ -56,8 +56,8 @@ const ProjectCard = styled.div`
 	flex-direction: column;
 	border-radius:20px;
 	overflow: hidden;
-	-webkit-box-shadow: 3px 2px 16px 1px rgba(0,0,0,0.57); 
-	box-shadow: 3px 2px 16px 1px rgba(0,0,0,0.57);
+	-webkit-box-shadow: 3px 2px 10px 1px rgba(0,0,0,0.37); 
+	box-shadow: 3px 2px 10px 1px rgba(0,0,0,0.37);
 `
 
 const ImageContainer = styled.div`
@@ -81,6 +81,17 @@ const ProjectButtonContainer = styled.div`
 
 const ProjectDescripton = styled(HTMLTextContainer)`
 	margin-top: 1em;
+
+	a {
+		color: ${props => props.theme.colorPrimary};
+		text-decoration: underline;
+		font-family:'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+		font-size:1.5em;
+	}
+	strong {
+		color: ${props => props.theme.colorPrimary};
+	}
 `
 
 const VideoContainer = styled.div`
