@@ -81,7 +81,6 @@ const ProjectButtonContainer = styled.div`
 
 const ProjectDescripton = styled(HTMLTextContainer)`
 	margin-top: 1em;
-
 	a {
 		color: ${props => props.theme.colorPrimary};
 		text-decoration: underline;
@@ -148,7 +147,7 @@ const MoreWork = () => {
 																<ImageContainer imageUrl={item.image.url}/>
 															}
 															<ProjectContentInfo>
-																<H3 textSize="2em" contrastColor asTitle textAlign="center" textMargin="0 0 0">{item.title}</H3>
+																<H3 textSize="1.8em" contrastColor asTitle textAlign="center" textMargin="0 0 0">{item.title}</H3>
 																<ListOfTech>
 																	{
 																		item.skills.map((skill, idx2) =>{

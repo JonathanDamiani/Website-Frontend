@@ -13,6 +13,7 @@ export const H3 = styled.h3`
 	font-weight: 400;
 	letter-spacing: 2.5px;
 	font-family: 'Poppins', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	line-height: 1.2;
 	${({ asTitle }) => asTitle && `
 		font-family: 'Baloo Tamma 2', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	`}
