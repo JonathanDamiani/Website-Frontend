@@ -22,7 +22,7 @@ const ProjectModalStyle = styled.div`
     align-items:center;
     left:0;
     top:0;
-    z-index: 999;
+    z-index: 20000;
 
     &::before {
         content:"";
