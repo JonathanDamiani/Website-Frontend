@@ -8,7 +8,7 @@ const SectionsWrapper = styled.div`
 `
 
 const Index = () => {
-
+	
 	return (
 		<>	
 			<Home/>

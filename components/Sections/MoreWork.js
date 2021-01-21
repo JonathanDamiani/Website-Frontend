@@ -124,7 +124,6 @@ const MoreWork = () => {
 						</MoreWorkContainer>
 						<Query query={SEC_PROJECTS_QUERY} id={null}>
 								{({data: {projects}}) => {
-									console.log(projects);
 									let projectsPieces = projects.slice().sort((a, b) => {
 										return a.position - b.position;
 									});
