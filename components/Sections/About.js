@@ -101,8 +101,8 @@ const AboutInfoContainer = styled(InfoContainer)`
 const About = () => {
     let iconsSkills = [
         ioniconsOutline.Library,
-        ioniconsOutline.GameController,
         ioniconsOutline.CodeSlash,
+        ioniconsOutline.GameController,
     ]
 
     return (
