@@ -106,7 +106,7 @@ const MobileButtonContainer = styled.div`
         border-radius: 5px;
         background-color: ${props => props.theme.colorBG1};
         border: 2px solid ${props => props.theme.colorBG3};
-        z-index:120;
+        z-index:20000;
 
         &::before, &::after {
             content: "";
